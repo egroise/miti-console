@@ -51,6 +51,13 @@ function inProgressEnded() {
 
 function checkDir(path) { if (!fs.existsSync(path)) { fs.mkdirSync(path); return true} return false }
 
+function cleanDir(path) { 
+    var files = dir(path, "")
+    files.forEach(file => {
+        fs.unlinkSync(mc.p(path,file))
+    })
+}
+
 function targetFile(sourceFile, targetPath, rootFolder, sourceExt, targetExt) {
     var bits = sourceFile.split(path.sep)
     var name = bits[bits.length-1]
@@ -102,3 +109,4 @@ exports.targetFile = targetFile
 exports.run = run
 exports.checkRun = checkRun
 exports.progress = progress
+exports.cleanDir = cleanDir
