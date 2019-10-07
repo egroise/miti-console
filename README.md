@@ -1,2 +1,2 @@
-# miti_console
+# miti-console
 npm module : Tools for console scripts

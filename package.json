@@ -1,0 +1,32 @@
+{
+  "name": "miti-console",
+  "version": "0.1.1",
+  "description": "Tools for console scripts",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/egroise/miti-console.git"
+  },
+  "keywords": [
+    "tools",
+    "console"
+  ],
+  "author": "Eric GROISE",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/egroise/miti-console/issues"
+  },
+  "homepage": "https://github.com/egroise/miti-console#readme",
+  "dependencies": {
+    "child_process": "^1.0.2",
+    "cli-progress": "^3.3.1",
+    "single-line-log": "^1.1.2"
+  },
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "mocha": "^6.2.1"
+  }
+}
