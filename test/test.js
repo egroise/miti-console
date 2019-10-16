@@ -12,3 +12,18 @@ describe("dir", function() {
         assert.equal(files.length, 1)
     })
 })
+
+describe("targetFile", function() {
+    it("test", function() {
+        var t = mc.targetFile("c:/tmp/a/test.png","c:/tmp","c:/tmp/b")
+        assert.equal(t,"c:\\tmp\\b\\a\\test.png")
+    })
+})
+
+
+describe("run", function() {
+    it("test", function() {
+        var r = mc.run("dir")
+    })
+})
+

@@ -54,7 +54,7 @@ function checkDir(path) { if (!fs.existsSync(path)) { fs.mkdirSync(path); return
 function cleanDir(path) { 
     var files = dir(path, "")
     files.forEach(file => {
-        fs.unlinkSync(mc.p(path,file))
+        fs.unlinkSync(p(path,file))
     })
 }
 
@@ -78,6 +78,31 @@ function targetFile(sourceFile, targetPath, rootFolder, sourceExt, targetExt) {
     return target.replace("."+ sourceExt,"." + targetExt)
 }
 
+function targetFile(sourceFile, sourcePath, targetPath) {
+    var sp = p(sourcePath, "")
+    var tp = p(targetPath,"")
+    var sf = p(sourceFile,"")
+    var sfp = path.dirname(sf)
+    var sfn = path.basename(sf)
+
+    if (!sf.startsWith(sp)) { console.error("targetFile: sourceFile must be under sourcePath") }
+    
+    var relPath = sfp.substring(sp.length+1)
+
+    var bits = relPath.split(path.sep)
+    var relProgressivePath = ""
+    var afterCore = false
+    checkDir(tp)
+    for(var i = 0; i < bits.length ;i++){
+        if (relProgressivePath != "") relPath += path.sep
+        relProgressivePath += bits[i] 
+        checkDir(p(tp, relProgressivePath))
+    }
+    var target = p(tp, relProgressivePath)
+    target = p(target, sfn)
+    return target
+}
+
 function run(cmd) {
     var code = null
     try {
@@ -85,6 +110,18 @@ function run(cmd) {
     } catch (error) {
         var bin = cmd.split(" ")[0]
         console.error("Failed executing ["+bin+ "]")
+        return null
+    }
+}
+
+function runCmd(...args) {
+    var cmd = args[0]
+    var path1 = args[1]
+    var path2 = args[2]
+    try {
+        return child_process.spawnSync(cmd, [path1 , path2 ]).output.toString()
+    } catch (error) {
+        console.error("Failed executing ["+ cmd + "]")
         return null
     }
 }
@@ -107,6 +144,7 @@ exports.dir = dir
 exports.checkDir = checkDir
 exports.targetFile = targetFile
 exports.run = run
+exports.runCmd = runCmd
 exports.checkRun = checkRun
 exports.progress = progress
 exports.cleanDir = cleanDir
