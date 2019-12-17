@@ -9,9 +9,6 @@ Use nodejs for writing command line scripts manipulating files.
 
 * [What is it](#what-is-it)
 * [Examples](#examples)
-* [Usage](#usage)
-* [Support](#support)
-* [Thanks](#thanks)
 
 ## What is it
 
