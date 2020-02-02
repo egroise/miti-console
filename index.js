@@ -10,6 +10,10 @@ const progress = new cp.SingleBar({
     hideCursor: true
 }, cp.Presets.shades_classic);
 
+/** Combines path 
+ * @param {string} path1 - File path
+ * @param {string} path2 - sub path or file name
+*/
 function p(path1, path2) { return path.resolve(path1, path2)}
 
 function dir(path, extension) { 
@@ -94,7 +98,7 @@ function targetFile(sourceFile, sourcePath, targetPath) {
     var afterCore = false
     checkDir(tp)
     for(var i = 0; i < bits.length ;i++){
-        if (relProgressivePath != "") relPath += path.sep
+        if (relProgressivePath != "") relProgressivePath += path.sep
         relProgressivePath += bits[i] 
         checkDir(p(tp, relProgressivePath))
     }

@@ -1,6 +1,6 @@
 {
   "name": "miti-console",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "description": "Tools for console scripts",
   "main": "index.js",
   "scripts": {
