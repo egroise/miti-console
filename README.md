@@ -1,39 +1,37 @@
 # miti-console
-npm module : Tools for console scripts
 
-> Simple command line scripts
+An API for writing nodejs console script.
 
-Use nodejs for writing command line scripts manipulating files.
+I created this module for helping writing command line scripts mainly manipulating files.
+These tools where tested on MacOS & Windows.
 
-## Table of Contents
+## Installation
 
-* [What is it](#what-is-it)
-* [Examples](#examples)
+To install the latest version on npm globally (might require `sudo`;
+[learn how to fix this](https://docs.npmjs.com/resolving-eacces-permissions-errors-when-installing-packages-globally)):
 
-## What is it
+    npm install -g miti-console
 
-I created this module for helping writing command line scripts manipulating files.
-These scripts will work on iOs & Windows.
+To install the latest version on npm locally and save it in your package's
+`package.json` file:
 
-## Examples
-
-Check out the [miti-console examples](docs/examples.md) to see what it can help you do.
+    npm install --save miti-console
 
 ## Usage
 
 Just add...
 
 ```sh
-try {
-    mc = require('miti-console')
-} catch (error) {
-    console.log("")
-    console.log("miti-console not installed. (please run 'npm install miti-console')")
-    process.exit(2)
-}
+    const mc = require('miti-console');
 ```
 
 ... in your js header.
 
-[Apache Licence 2.0]: https://www.apache.org/licenses/LICENSE
-[contributors]: http://github.com/egroise/miti-console/contributors
+## Documentation
+
+[Full API Documentation](docs/index.md)
+ 
+## Examples
+
+Check out the [miti-console examples](docs/examples.md) to see what it can help you do.
+

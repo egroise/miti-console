@@ -1,10 +1,11 @@
 {
   "name": "miti-console",
-  "version": "0.1.5",
+  "version": "0.1.6",
   "description": "Tools for console scripts",
   "main": "index.js",
   "scripts": {
-    "test": "mocha"
+    "test": "mocha",
+    "doc": "jsdoc2md ./index.js | Out-File -FilePath ./docs/index.md -Encoding oem"
   },
   "repository": {
     "type": "git",
@@ -22,11 +23,13 @@
   "homepage": "https://github.com/egroise/miti-console#readme",
   "dependencies": {
     "child_process": "^1.0.2",
-    "cli-progress": "^3.3.1",
+    "cli-progress": "^3.8.2",
     "single-line-log": "^1.1.2"
   },
   "devDependencies": {
     "chai": "^4.2.0",
+    "jsdoc": "^3.6.5",
+    "jsdoc-to-markdown": "^6.0.1",
     "mocha": "^6.2.1"
   }
 }
